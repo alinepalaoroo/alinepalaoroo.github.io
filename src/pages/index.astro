@@ -1,0 +1,70 @@
+---
+import Base from '../layouts/Base.astro';
+const titulo = 'Aline Palaoro, arquiteta de operações e IA aplicada';
+const descricao = 'Organizo dado, infraestrutura e processo para operações que cresceram mais rápido que os próprios sistemas.';
+---
+<Base titulo={titulo} descricao={descricao}>
+  <h1>Sua operação cresceu. Os sistemas dela não.</h1>
+
+  <p class="destaque">
+    Eu organizo dado, infraestrutura e processo em operações que passaram do ponto
+    em que planilha, sistema antigo e trabalho manual ainda davam conta.
+  </p>
+
+  <p>
+    O sintoma costuma ser o mesmo. Ninguém confia no número que o sistema mostra.
+    Cada relatório sai de um lugar diferente. Toda mudança dá medo, porque não existe
+    forma de saber o que ela vai quebrar. E o time gasta o dia repetindo tarefa que
+    uma máquina deveria fazer.
+  </p>
+
+  <p>
+    Isso não se resolve comprando outra ferramenta. Resolve organizando a base: uma
+    fonte de dado confiável, um caminho seguro para mudar o que está no ar, e
+    automação no lugar onde a repetição realmente acontece.
+  </p>
+
+  <h2>Como eu entro</h2>
+
+  <section class="oferta">
+    <h3>Diagnóstico de operação e mapa de automação</h3>
+    <p><strong>Para quem:</strong> empresa com processo comercial ou operacional rodando na mão.</p>
+    <p><strong>Problema:</strong> todo mundo sabe que dá para automatizar, ninguém sabe por onde começar nem quanto vale cada pedaço.</p>
+    <p><strong>Entregável:</strong> mapa do que dá para automatizar, priorizado por retorno, com estimativa de esforço por item.</p>
+    <p><strong>Prazo:</strong> duas semanas.</p>
+  </section>
+
+  <section class="oferta">
+    <h3>Arquitetura e estabilização de plataforma de dados</h3>
+    <p><strong>Para quem:</strong> empresa com sistema legado ou dado espalhado entre ferramentas.</p>
+    <p><strong>Problema:</strong> o dado existe, mas ninguém consegue confiar nele nem consumi-lo em um lugar só.</p>
+    <p><strong>Entregável:</strong> desenho das camadas de dado, decisões registradas por escrito, e caminho de migração que não para a operação.</p>
+    <p><strong>Prazo:</strong> de quatro a seis semanas, dependendo do tamanho do legado.</p>
+  </section>
+
+  <h2>Como isso parece na prática</h2>
+
+  <p>
+    Em uma operação de agritech com e-commerce, migrei um ERP legado somente leitura
+    para uma plataforma de dados própria, em camadas, com cada decisão de arquitetura
+    registrada por escrito.
+  </p>
+
+  <p><a href="/cases/migracao-erp-legado-plataforma-dados/">Ler o case completo</a></p>
+
+  <h2>Conversar</h2>
+
+  <p>
+    Se algo aqui parece com o seu problema, me escreva em
+    <a href="mailto:alinepalaoroo@gmail.com">alinepalaoroo@gmail.com</a>.
+    Uma conversa de trinta minutos normalmente é suficiente para saber se faz sentido.
+  </p>
+</Base>
+
+<style>
+  .destaque { font-size: 1.2rem; color: var(--cor-texto); }
+  .oferta { border-left: 2px solid var(--cor-destaque); padding: 0.25rem 0 0.25rem 1.25rem; margin: 1.75rem 0; }
+  .oferta h3 { margin: 0 0 0.75rem; font-size: 1.1rem; }
+  .oferta p { margin: 0 0 0.4rem; font-size: 0.97rem; }
+  .oferta strong { color: var(--cor-suave); font-weight: 600; }
+</style>

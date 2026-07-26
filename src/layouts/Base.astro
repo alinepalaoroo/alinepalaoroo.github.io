@@ -1,0 +1,34 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Rodape from '../components/Rodape.astro';
+
+interface Props {
+  titulo: string;
+  descricao: string;
+}
+const { titulo, descricao } = Astro.props;
+const urlCanonica = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{titulo}</title>
+    <meta name="description" content={descricao} />
+    <link rel="canonical" href={urlCanonica} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={titulo} />
+    <meta property="og:description" content={descricao} />
+    <meta property="og:url" content={urlCanonica} />
+    <meta name="twitter:card" content="summary" />
+  </head>
+  <body>
+    <Nav />
+    <main>
+      <slot />
+    </main>
+    <Rodape />
+  </body>
+</html>
