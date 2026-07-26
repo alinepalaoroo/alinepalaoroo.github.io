@@ -1,0 +1,30 @@
+---
+interface Item {
+  href: string;
+  titulo: string;
+  descricao: string;
+  meta?: string;
+}
+interface Props {
+  itens: Item[];
+}
+const { itens } = Astro.props;
+---
+<ul class="lista">
+  {itens.map((item) => (
+    <li>
+      <a href={item.href}>{item.titulo}</a>
+      {item.meta && <p class="meta">{item.meta}</p>}
+      <p class="descricao">{item.descricao}</p>
+    </li>
+  ))}
+</ul>
+<style>
+  .lista { list-style: none; margin: 2rem 0 0; padding: 0; }
+  li { padding: 1.5rem 0; border-bottom: 1px solid var(--cor-borda); }
+  li:last-child { border-bottom: 0; }
+  a { font-size: 1.15rem; font-weight: 600; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .meta { margin: 0.35rem 0 0; font-size: 0.85rem; color: var(--cor-suave); }
+  .descricao { margin: 0.5rem 0 0; color: var(--cor-suave); }
+</style>

@@ -1,0 +1,29 @@
+---
+import Base from './Base.astro';
+
+interface Props {
+  titulo: string;
+  descricao: string;
+  setor: string;
+  periodo: string;
+  stack: string[];
+}
+const { titulo, descricao, setor, periodo, stack } = Astro.props;
+---
+<Base titulo={`${titulo}, case`} descricao={descricao}>
+  <article>
+    <h1>{titulo}</h1>
+    <dl class="ficha">
+      <div><dt>Setor</dt><dd>{setor}</dd></div>
+      <div><dt>Período</dt><dd>{periodo}</dd></div>
+      <div><dt>Tecnologias</dt><dd>{stack.join(', ')}</dd></div>
+    </dl>
+    <slot />
+  </article>
+</Base>
+<style>
+  .ficha { display: grid; gap: 0.75rem; margin: 1.5rem 0 2.5rem; padding: 1.25rem 0; border-top: 1px solid var(--cor-borda); border-bottom: 1px solid var(--cor-borda); }
+  .ficha div { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  dt { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--cor-suave); min-width: 8rem; }
+  dd { margin: 0; font-size: 0.95rem; }
+</style>

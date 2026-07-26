@@ -1,0 +1,24 @@
+---
+import Base from '../../layouts/Base.astro';
+import ListaConteudo from '../../components/ListaConteudo.astro';
+import { getCollection } from 'astro:content';
+
+const cases = (await getCollection('cases')).sort((a, b) => a.data.ordem - b.data.ordem);
+const itens = cases.map((c) => ({
+  href: `/cases/${c.id}/`,
+  titulo: c.data.titulo,
+  descricao: c.data.descricao,
+  meta: `${c.data.setor} · ${c.data.periodo}`,
+}));
+---
+<Base
+  titulo="Cases, Aline Palaoro"
+  descricao="Trabalho técnico documentado: contexto, restrição, decisão de arquitetura e resultado."
+>
+  <h1>Cases</h1>
+  <p>
+    Cada case mostra o contexto, a restrição real, a decisão de arquitetura tomada e o
+    porquê. Nomes de cliente ficam de fora por confidencialidade.
+  </p>
+  <ListaConteudo itens={itens} />
+</Base>
