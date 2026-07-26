@@ -9,11 +9,11 @@ ordem: 1
 
 ## O contexto
 
-A operação é de agritech com e-commerce: venda de insumo agrícola tanto no atendimento direto ao produtor quanto por uma loja própria. O negócio já tinha histórico e catálogo grandes, com vendas passando por mais de um canal ao mesmo tempo.
+O projeto foi feito para uma operação de agritech com e-commerce. Todo o dado dessa operação vivia dentro de um ERP (sistema de gestão que concentra cadastro, estoque e financeiro em um só lugar) legado, em Firebird, acessível apenas para leitura.
 
-Todo esse dado vivia dentro de um ERP (sistema de gestão que concentra cadastro, estoque e financeiro em um só lugar) antigo, construído para um momento anterior da empresa. Cada aplicação que precisava desse dado, seja o painel administrativo, seja a loja, seja o gateway de mensageria, tinha que resolver sozinha como ler daquele sistema.
+Quatro aplicações dependiam desse dado: painel administrativo, API, loja de e-commerce e gateway de mensageria.
 
-Sem uma fonte única, o risco natural é cada time montar sua própria leitura do mesmo dado e chegar a números diferentes para a mesma pergunta. O projeto nasceu para resolver isso: construir uma plataforma de dados própria, capaz de alimentar todas essas aplicações a partir de um único ponto confiável.
+O projeto nasceu para construir, a partir desse ERP, uma plataforma de dados própria, capaz de alimentar essas quatro aplicações a partir de um único ponto confiável.
 
 ## A restrição que mudou tudo
 
@@ -29,7 +29,7 @@ A resposta a essa restrição foi organizar o dado em camadas, em vez de fazer u
 
 A primeira camada é de ingestão bruta: uma réplica fiel do que sai do ERP, sem nenhuma regra de negócio aplicada ainda. Em seguida vem uma camada de staging (área intermediária de preparação, onde o dado ganha tipo e formato padronizado antes de virar algo definitivo).
 
-Depois da staging vêm os schemas canônicos (a estrutura de banco tratada como versão oficial de um assunto), um por domínio de negócio: catálogo, vendas, estoque, financeiro, fiscal, compras, CRM (histórico de relacionamento com cliente) e comércio. É nos schemas canônicos que a regra de negócio de fato é aplicada.
+Depois da staging vêm os schemas canônicos (a estrutura de banco tratada como versão oficial de um assunto), um por domínio de negócio: catálogo, vendas, estoque, financeiro, fiscal, compras, CRM (histórico de relacionamento com cliente), mensageria e comércio. É nos schemas canônicos que a regra de negócio de fato é aplicada.
 
 Por fim, uma camada única de consumo reúne o que os schemas canônicos produzem. É o único ponto que as aplicações acessam: painel administrativo, API, loja de e-commerce e gateway de mensageria leem todos dessa mesma camada.
 
