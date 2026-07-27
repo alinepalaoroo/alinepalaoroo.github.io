@@ -19,6 +19,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Verificar confidencialidade
+        run: node scripts/verificar-confidencialidade.mjs
       - uses: withastro/action@v3
         with:
           node-version: 22

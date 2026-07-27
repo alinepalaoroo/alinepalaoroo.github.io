@@ -9,9 +9,11 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "verificar": "node scripts/verificar-confidencialidade.mjs"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
     "astro": "^7.1.3"
   }
 }
