@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import ListaConteudo from '../../components/ListaConteudo.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.rascunho))
+  .sort((a, b) => b.data.publicadoEm.valueOf() - a.data.publicadoEm.valueOf());
+
+const itens = posts.map((p) => ({
+  href: `/blog/${p.id}/`,
+  titulo: p.data.titulo,
+  descricao: p.data.descricao,
+  meta: p.data.publicadoEm.toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' }),
+}));
+---
+<Base
+  titulo="Blog, Aline Palaoro"
+  descricao="Decisões de arquitetura, governança de dados e automação, explicadas com exemplo concreto."
+>
+  <h1>Blog</h1>
+  <p>Decisões reais de engenharia e operação, com o porquê de cada uma.</p>
+  <ListaConteudo itens={itens} />
+</Base>

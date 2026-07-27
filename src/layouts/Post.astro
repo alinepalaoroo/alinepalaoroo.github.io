@@ -1,0 +1,26 @@
+---
+import Base from './Base.astro';
+
+interface Props {
+  titulo: string;
+  descricao: string;
+  publicadoEm: Date;
+  tags: string[];
+}
+const { titulo, descricao, publicadoEm, tags } = Astro.props;
+const dataLegivel = publicadoEm.toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<Base titulo={titulo} descricao={descricao}>
+  <article>
+    <h1>{titulo}</h1>
+    <p class="meta">
+      <time datetime={publicadoEm.toISOString()}>{dataLegivel}</time>
+      {tags.length > 0 && <span>{tags.join(', ')}</span>}
+    </p>
+    <slot />
+  </article>
+</Base>
+<style>
+  .meta { margin: 0 0 2.5rem; font-size: 0.9rem; color: var(--cor-suave); }
+  .meta span { margin-left: 0.75rem; }
+</style>
