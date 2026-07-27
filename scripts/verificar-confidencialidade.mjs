@@ -19,7 +19,7 @@ const PROIBIDOS = [
   ['hetzner', 'provedor de servidor do cliente'],
   ['portainer', 'ferramenta de administração interna do cliente'],
   ['wireguard', 'topologia de acesso privado do cliente'],
-  ['ssh ', 'possível instrução de acesso a servidor'],
+  ['ssh', 'possível instrução de acesso a servidor'],
   ['gho_', 'token do GitHub'],
   ['ghp_', 'token do GitHub'],
   // Prefixos de chave de API escritos por extenso. Não usar apenas 'sk-':
@@ -30,6 +30,18 @@ const PROIBIDOS = [
   ['salarial', 'material privado do workspace de carreira'],
   ['clt', 'material privado do workspace de carreira'],
 ];
+
+// Termos curtos que podem aparecer colados a pontuação (fim de frase, vírgula)
+// em vez de sempre seguidos de espaço. Para esses, exigir fronteira de palavra
+// em vez de substring simples, senão "SSH." ou "ssh," passam batidos.
+const FRONTEIRA_DE_PALAVRA = new Set(['ssh']);
+
+function contemTermo(alvo, termo) {
+  if (FRONTEIRA_DE_PALAVRA.has(termo)) {
+    return new RegExp(`\\b${termo}\\b`).test(alvo);
+  }
+  return alvo.includes(termo);
+}
 
 function arquivos(caminho) {
   const info = statSync(caminho);
@@ -48,7 +60,7 @@ for (const raiz of RAIZES) {
     linhas.forEach((linha, i) => {
       const alvo = linha.toLowerCase();
       for (const [termo, motivo] of PROIBIDOS) {
-        if (alvo.includes(termo)) {
+        if (contemTermo(alvo, termo)) {
           achados.push(`${arquivo}:${i + 1}  "${termo}"  (${motivo})`);
         }
       }
