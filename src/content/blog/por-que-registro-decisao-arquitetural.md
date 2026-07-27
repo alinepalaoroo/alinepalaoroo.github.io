@@ -16,13 +16,13 @@ Levou um projeto inteiro para eu entender que a pergunta certa não é quem vai 
 
 Trabalhando sozinha, parece que só existem duas pessoas na equação: eu agora e eu depois. Na prática, é exatamente por isso que o registro importa. Não tem ninguém além de mim para lembrar o motivo de uma escolha, e memória de decisão técnica some rápido quando a atenção já foi para o próximo problema.
 
-## O caso que quase se repetiu
+## O risco que o registro evita
 
-Num projeto de plataforma de dados de cerca de dois meses e meio, decidi a topologia de camadas do banco logo nas primeiras semanas.
+Numa plataforma de dados construída ao longo de cerca de dois meses e meio, uma decisão de arquitetura tomada numa semana pode parecer óbvia enquanto o motivo ainda está fresco na cabeça.
 
-Três semanas depois, voltando ao mesmo trecho de código para resolver outra coisa, quase desfiz essa decisão sem perceber. O motivo original não estava mais na minha cabeça, só o resultado. E o resultado, olhado sozinho, parecia arbitrário.
+Três semanas depois, sem o registro desse motivo, ela para de parecer óbvia. Sobra só o resultado, e resultado sozinho pode parecer arbitrário para quem volta a olhar.
 
-Se eu não tivesse escrito o porquê da escolha, teria discutido a mesma decisão de novo, sozinha, e talvez chegado a um resultado diferente do primeiro. Sem saber que já tinha decidido aquilo antes, por um motivo específico.
+É nesse ponto que uma decisão certa corre o risco de ser desfeita sem que ninguém perceba que ela já tinha sido tomada, e por quê. Não porque a decisão estivesse errada, mas porque o motivo dela não sobrou em lugar nenhum além da memória de quem decidiu.
 
 ## O que um registro precisa ter, no mínimo
 
@@ -40,4 +40,4 @@ Trabalhando sozinha, esse alguém novo muitas vezes sou eu mesma, meses depois, 
 
 Documentar decisão não é sobre comunicar para um time que ainda não existe. É sobre impedir que uma decisão certa seja revertida em silêncio, só porque o motivo dela ficou só na minha cabeça e a minha cabeça esqueceu.
 
-Das 19 decisões que registrei nesse projeto, nenhuma foi revertida sem que alguém, nem que fosse eu mesma, lesse primeiro por que ela tinha sido tomada daquele jeito. Esse é o resultado prático de escrever o porquê junto com a decisão: revisão continua possível, reversão por esquecimento não.
+Escrever o porquê junto com a decisão não impede que ela mude depois. Impede que ela mude por esquecimento, em vez de mudar por um motivo novo e melhor do que o antigo.

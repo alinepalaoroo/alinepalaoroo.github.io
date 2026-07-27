@@ -18,7 +18,7 @@ Ler a configuração e concluir que ela está correta é um exercício de leitur
 
 Numa plataforma de dados em produção, apliquei segurança de acesso por linha: regra dentro do próprio banco que decide, linha por linha de uma tabela, o que cada usuário pode ver. Em vez de deixar essa decisão para cada aplicação que consulta o banco separadamente.
 
-Escrever essa regra é a parte fácil. Provar que ela funciona é outra tarefa, e foi essa segunda tarefa que exigiu mais cuidado.
+Escrever essa regra é a parte fácil. Provar que ela funciona é uma tarefa diferente, e é nela que mora o risco de confiar sem checar.
 
 ## Fingir ser o invasor
 
@@ -36,6 +36,6 @@ Uma verificação de segurança rodada uma vez, manualmente, prova que o banco e
 
 Toda mudança de estrutura pode alterar, sem intenção, o efeito de uma regra de acesso escrita antes dela. Por isso a verificação de simular o cliente sem permissão precisa rodar automaticamente antes de cada mudança ir para produção, não numa auditoria de vez em quando.
 
-Rodando a cada mudança, o vazamento é pego antes de qualquer cliente real acessar dado que não devia ver. Rodando só de tempos em tempos, o vazamento já pode ter ficado exposto por semanas antes de alguém notar.
+Rodando a cada mudança, o vazamento é pego antes de qualquer cliente real acessar dado que não devia ver. Rodando só de tempos em tempos, um vazamento pode ficar exposto por um tempo antes de alguém notar.
 
 A pergunta que importa não é se a regra de acesso foi escrita direito uma vez. É se ela continua funcionando depois de cada mudança que vem depois dela. Só quem simula o invasor a cada mudança consegue responder isso com dado real, e não com confiança.
