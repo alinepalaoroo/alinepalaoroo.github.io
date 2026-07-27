@@ -6,8 +6,8 @@ import { fileURLToPath } from 'node:url';
 // então ele precisa ficar de fora da varredura ou sempre acusaria a si mesmo.
 const ARQUIVO_PROPRIO = fileURLToPath(import.meta.url);
 
-const RAIZES = ['src', 'scripts', '.github', 'README.md', 'astro.config.mjs'];
-const IGNORAR = new Set(['node_modules', 'dist', '.astro', '.git']);
+const RAIZES = ['.'];
+const IGNORAR = new Set(['node_modules', 'dist', '.astro', '.git', 'package-lock.json']);
 const EXTENSOES = new Set(['.md', '.astro', '.ts', '.js', '.mjs', '.css', '.json', '.yml', '.yaml', '']);
 
 // Termo proibido, em minúscula. Cada entrada tem o motivo, para o erro ser acionável.

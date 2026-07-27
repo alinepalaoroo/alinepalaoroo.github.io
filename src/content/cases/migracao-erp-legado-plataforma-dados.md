@@ -11,7 +11,7 @@ ordem: 1
 
 O projeto foi feito para uma operação de agritech com e-commerce. Todo o dado dessa operação vivia dentro de um ERP (sistema de gestão que concentra cadastro, estoque e financeiro em um só lugar) legado, em Firebird, acessível apenas para leitura.
 
-Quatro aplicações dependiam desse dado: painel administrativo, API, loja de e-commerce e gateway de mensageria.
+Quatro aplicações consomem esse dado: painel administrativo, API, loja de e-commerce e gateway de mensageria.
 
 O projeto nasceu para construir, a partir desse ERP, uma plataforma de dados própria, capaz de alimentar essas quatro aplicações a partir de um único ponto confiável.
 
@@ -62,7 +62,7 @@ A infraestrutura de destino é PostgreSQL com Supabase self-hosted (a mesma cama
 
 ## Por que registrei 19 decisões por escrito
 
-Ao longo do projeto, registrei 19 decisões de arquitetura por escrito. Entre elas, o padrão de nomeação usado em toda migração de banco, a própria topologia de camadas descrita acima, e a definição de uma branch canônica única como referência de código.
+Ao longo do projeto, registrei 19 decisões de arquitetura por escrito. Entre elas, o padrão de nomeação usado em toda migração de banco (mudança na estrutura das tabelas, como criar uma coluna nova ou alterar um tipo de dado), a própria topologia de camadas descrita acima, e a definição de uma branch (linha de desenvolvimento dentro do controle de versão do código) canônica única como referência de código.
 
 O motivo não é burocracia. Em um projeto que mexe na fundação de dado de uma operação em funcionamento, a maior fonte de retrabalho é decisão tomada de cabeça, que depois alguém desfaz sem saber que ela existia ou por que foi tomada daquela forma. Escrever a decisão no momento em que ela é tomada, com o motivo junto, evita que o mesmo debate se repita meses depois, e dá para quem entra depois no projeto entender o porquê sem precisar perguntar.
 
