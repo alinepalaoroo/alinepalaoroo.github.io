@@ -20,9 +20,13 @@ const { itens } = Astro.props;
   ))}
 </ul>
 <style>
-  .lista { list-style: none; margin: 2rem 0 0; padding: 0; }
-  li { padding: 1.5rem 0; border-bottom: 1px solid var(--cor-borda); }
-  li:last-child { border-bottom: 0; }
+  .lista { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; gap: 1rem; }
+  li {
+    background: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+  }
   a { font-size: 1.15rem; font-weight: 600; text-decoration: none; }
   a:hover { text-decoration: underline; }
   .meta { margin: 0.35rem 0 0; font-size: 0.85rem; color: var(--cor-suave); }
