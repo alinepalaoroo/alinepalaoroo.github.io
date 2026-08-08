@@ -31,5 +31,26 @@ const urlCanonica = new URL(Astro.url.pathname, Astro.site);
       <slot />
     </main>
     <Rodape />
+    <script>
+      const semMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!semMovimento) {
+        const alvo = document.querySelectorAll('main > *');
+        const observador = new IntersectionObserver(
+          (entradas) => {
+            for (const entrada of entradas) {
+              if (entrada.isIntersecting) {
+                entrada.target.classList.add('visivel');
+                observador.unobserve(entrada.target);
+              }
+            }
+          },
+          { threshold: 0.1 }
+        );
+        alvo.forEach((el) => {
+          el.classList.add('revelar');
+          observador.observe(el);
+        });
+      }
+    </script>
   </body>
 </html>

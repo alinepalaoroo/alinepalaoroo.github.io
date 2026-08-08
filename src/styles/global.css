@@ -41,3 +41,14 @@ code { font-family: var(--fonte-mono); font-size: 0.9em; }
 pre { overflow-x: auto; padding: 1rem; border: 1px solid var(--cor-borda); border-radius: 6px; }
 img, svg { max-width: 100%; height: auto; }
 table { display: block; overflow-x: auto; border-collapse: collapse; }
+
+.revelar {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 280ms ease-out, transform 280ms ease-out;
+}
+.revelar.visivel { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .revelar { opacity: 1; transform: none; transition: none; }
+}
