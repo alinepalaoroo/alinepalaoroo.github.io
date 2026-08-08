@@ -34,7 +34,8 @@ antes de ler o texto corrido, e o site tem uma cara que não é a de um template
   credencial. `npm run verificar` continua passando.
 - **Tema claro e escuro.** Todo token novo precisa de par claro/escuro em `global.css`.
 - **Mobile-first.** O link é enviado em DM e abre no telefone primeiro.
-- **Posicionamento 100% PJ.** Redesign não adiciona nada relacionado a busca de vaga CLT.
+- **Posicionamento 100% PJ.** Redesign não adiciona nada relacionado a processo seletivo de emprego
+  formal.
 
 ## 4. Abordagem escolhida
 
